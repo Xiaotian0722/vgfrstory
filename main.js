@@ -86,13 +86,13 @@ function preload() {
 
 function setup() {
 
-  img1 = loadImage('narrative/Group 2.png');
+  img1 = loadImage('narrative/Group 1.png');
   img2 = loadImage('narrative/mini.png');
   l1 = loadImage('narrative/l1.png');
   imgforest = loadImage('narrative/forest.png');
   imgfire = loadImage('narrative/fire.png');
   imgwin = loadImage('narrative/win.png');
-  imgfinal = loadImage('narrative/final.png');
+  imgfinal = loadImage('narrative/arrive.png');
   // originalWidth1 = img1.width;
   // originalHeight1 = img1.height;
   // originalWidth2 = img2.width; 
