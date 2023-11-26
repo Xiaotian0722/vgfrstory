@@ -40,8 +40,7 @@ let drawRect8 = false;
 let drawRect9 = false;
 
 //narrative part
-let img1;
-let img2;
+let img1, img2, imgforest, imgfire, imgwin, imgfinal;
 
 var j, k, l;
 var i, o, p;
@@ -87,12 +86,16 @@ function setup() {
 
   img1 = loadImage('narrative/Group 2.png');
   img2 = loadImage('narrative/mini.png');
-  originalWidth1 = img1.width;
-  originalHeight1 = img1.height;
-  originalWidth2 = img2.width; 
-  originalHeight2 = img2.height;
-  // Resize the image proportionally to fit the screen
-  resizeImageToFitScreen();
+  imgforest = loadImage('narrative/forest.png');
+  imgfire = loadImage('narrative/fire.png');
+  imgwin = loadImage('narrative/win.png');
+  imgfinal = loadImage('narrative/final.png');
+  // originalWidth1 = img1.width;
+  // originalHeight1 = img1.height;
+  // originalWidth2 = img2.width; 
+  // originalHeight2 = img2.height;
+  // // Resize the image proportionally to fit the screen
+  // resizeImageToFitScreen();
   
   // button = createButton('Play');  
   // button.position(300, 600);
@@ -149,8 +152,8 @@ function instruction() {
   fill(255);
   textSize(15);
   text("Click the buttons to make sounds or replay the sequence.", width / 2, height / 2 );
-  // fill(150)
-  // text("Click to continue!", width / 2, height / 2 + 25);
+  fill(150)
+  text("Click to continue!", width / 2, height / 2 + 25);
 }
 
 function instruction0() {
@@ -164,36 +167,36 @@ function instruction0() {
   //img1.resize(windowWidth/3,windowHeight/5)
 }
 
-function resizeImageToFitScreen() {
-  let aspectRatio = originalWidth1 / originalHeight1;
-  let newWidth, newHeight;
+// function resizeImageToFitScreen() {
+//   let aspectRatio = originalWidth1 / originalHeight1;
+//   let newWidth, newHeight;
 
-  // Calculate new dimensions based on screen size and original aspect ratio
-  if (width / height > aspectRatio) {
-    newWidth = height * aspectRatio;
-    newHeight = height;
-  } else {
-    newWidth = width;
-    newHeight = width / aspectRatio;
-  }
+//   // Calculate new dimensions based on screen size and original aspect ratio
+//   if (width / height > aspectRatio) {
+//     newWidth = height * aspectRatio;
+//     newHeight = height;
+//   } else {
+//     newWidth = width;
+//     newHeight = width / aspectRatio;
+//   }
 
-  // Resize the first image (img1)
-  img1.resize(newWidth, newHeight);
+//   // Resize the first image (img1)
+//   img1.resize(newWidth, newHeight);
 
-  //Resize the second image (img2)
-  let aspectRatio2 = originalWidth2 / originalHeight2;
-  let newWidth2, newHeight2;
+//   //Resize the second image (img2)
+//   let aspectRatio2 = originalWidth2 / originalHeight2;
+//   let newWidth2, newHeight2;
 
-  if (width / height > aspectRatio2) {
-    newWidth2 = height * aspectRatio2;
-    newHeight2 = height;
-  } else {
-    newWidth2 = width;
-    newHeight2 = width / aspectRatio2;
-  }
+//   if (width / height > aspectRatio2) {
+//     newWidth2 = height * aspectRatio2;
+//     newHeight2 = height;
+//   } else {
+//     newWidth2 = width;
+//     newHeight2 = width / aspectRatio2;
+//   }
 
-  img2.resize(newWidth2, newHeight2);
-}
+//   img2.resize(newWidth2, newHeight2);
+//}
 
 
 function drawlevel0() {
@@ -223,10 +226,11 @@ function drawlevel1() {
   if (playing1) {
     // Check if the player sequence is correct
     if (arraysEqual1()) {
-      fill(0, 255, 0);
-      textSize(20);
-      textAlign(CENTER, CENTER);
-      text('Continue to play next level!', width / 2, height / 2);
+      // fill(0, 255, 0);
+      // textSize(20);
+      // textAlign(CENTER, CENTER);
+      // text('Continue to play next level!', width / 2, height / 2);
+      image(imgwin, windowWidth/3,windowHeight/4);
     }
   }
 
@@ -254,18 +258,20 @@ function drawlevel1() {
 
 function drawlevel2() {
   background(0);
-  
+  image(imgforest, windowWidth/3,windowHeight/4);
   if (show2 == true){
-    instruction();
+    //instruction();
+    
   }
   
   if (playing2) {
     // Check if the player sequence is correct
     if (arraysEqual2()) {
-      fill(0, 255, 0);
-      textSize(20);
-      textAlign(CENTER, CENTER);
-      text('Continue to play next level!', width / 2, height / 2);
+      // fill(0, 255, 0);
+      // textSize(20);
+      // textAlign(CENTER, CENTER);
+      // text('Continue to play next level!', width / 2, height / 2);
+      image(imgwin, windowWidth/3,windowHeight/4);
     }
   }
 
@@ -293,19 +299,21 @@ function drawlevel2() {
 
 function drawlevel3() {
   background(0);
-  
+  image(imgfire, windowWidth/3,windowHeight/4);
   if (show3 == true){
-    instruction();
+   instruction();
+   
   }
   
   if (playing3) {
     // Check if the player sequence is correct
     if (arraysEqual3()) {
-      fill(0, 255, 0);
-      textSize(20);
-      textAlign(CENTER, CENTER);
-      text("Your melody resonates with nature's chorus!", width / 2, height / 2);
-      text("We're one step closer to the sanctuary!!", width / 2, height / 2 + 25);
+      // fill(0, 255, 0);
+      // textSize(20);
+      // textAlign(CENTER, CENTER);
+      // text("Your melody resonates with nature's chorus!", width / 2, height / 2);
+      // text("We're one step closer to the sanctuary!!", width / 2, height / 2 + 25);
+      image(imgfinal, windowWidth/3,windowHeight/4);
     }
   }
 
@@ -544,44 +552,44 @@ if (currentLevel === 1) {
   }
 }
 
-// function play() {
-//     if (currentLevel === 1) {
-//     if (!playing1) {
-//       playing1 = true;
-//       show1 = false;
-//       if (!musicPlayed1) {
-//         bg1.loop();
-//         musicPlayed1 = true;
-//       }
-//     playerSequence1 = [];
-//     playSequence1();
-//     }
-//   }
-//   if (currentLevel === 2) {
-//     if (!playing2) {
-//       playing2 = true;
-//       show2 = false;
-//       if (!musicPlayed2) {
-//         bg2.loop();
-//         musicPlayed2 = true;
-//       }
-//     playerSequence2 = [];
-//     playSequence2();
-//     }
-//   }
-//   if (currentLevel === 3) {
-//     if (!playing3) {
-//       playing3 = true;
-//       show3 = false;
-//       if (!musicPlayed3) {
-//         bg3.loop();
-//         musicPlayed3 = true;
-//       }
-//       playerSequence3 = [];
-//       playSequence3();
-//     }
-//   }
-// }
+function play() {
+    if (currentLevel === 1) {
+    if (!playing1) {
+      playing1 = true;
+      show1 = false;
+      if (!musicPlayed1) {
+        bg1.loop();
+        musicPlayed1 = true;
+      }
+    playerSequence1 = [];
+    playSequence1();
+    }
+  }
+  if (currentLevel === 2) {
+    if (!playing2) {
+      playing2 = true;
+      show2 = false;
+      if (!musicPlayed2) {
+        bg2.loop();
+        musicPlayed2 = true;
+      }
+    playerSequence2 = [];
+    playSequence2();
+    }
+  }
+  if (currentLevel === 3) {
+    if (!playing3) {
+      playing3 = true;
+      show3 = false;
+      if (!musicPlayed3) {
+        bg3.loop();
+        musicPlayed3 = true;
+      }
+      playerSequence3 = [];
+      playSequence3();
+    }
+  }
+}
 
 function switchLevel() {
   currentLevel++;
