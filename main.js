@@ -48,10 +48,12 @@ var z, x, c;
 var wind1, wind2, wind3;
 var bird1, bird2, bird3;
 var music1, music2, music3;
+var miniaudio;
+let isMiniAudioPlaying = false;
 
 document.getElementById('sound').addEventListener('click', 
 function preload() {
-  
+  miniaudio = loadSound('sound/mini.mp3');
   bg1 = loadSound('sound/1/background.mp3');
   bg1.setVolume(0.05);
   wind1 = loadSound('sound/1/wind1.mp3');
@@ -212,6 +214,12 @@ function drawlevel0() {
   textSize(15);
   //text("I can sense you're not feeling your best right now.", width / 2, height / 2 );
   image(img2, windowWidth/3,windowHeight/8);
+  if (!miniaudio.isPlaying() && !isMiniAudioPlaying) {
+    miniaudio.play();
+    miniaudio.setVolume(0.3);
+    isMiniAudioPlaying = true;
+  }
+  
   //text( "click 'Next' to the game.", width / 2, height / 2 + 25);        
   }
 }
@@ -305,7 +313,7 @@ function drawlevel3() {
    instruction();
    
   }
-  
+
   if (playing3) {
     // Check if the player sequence is correct
     if (arraysEqual3()) {
