@@ -25,24 +25,46 @@
       font-size: 18px;
       padding: 10px 20px;
       margin: 10px;
-      background-color: #3498db;
-      color: #fff;
+      background-color:#FFF1CC;
+      color: #333333;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
 
     button:hover {
-      background-color: #2980b9;
+      background-color: #F2F2F2;
     }
+
+    #next:hover,
+    #sound:hover,
+    #buttonB:hover {
+      background-color: #BDBDBD;
+    }
+
+    button#sound {
+      background-color: #FC9B14; 
+      color: #fff;
+    }
+
+    button#next{
+      background-color: #FC9B14; /* Background color for the "LoadSound" button */
+      color: #fff;
+    }
+
+    button#buttonB{
+      background-color: #E54E4E; /* Background color for the "LoadSound" button */
+      color: #fff;
+    }
+
   </style>
 </head>
 <body>
   <div>
     <button id="sound">LoadSound</button>
-    <button id="buttonA">sound 1</button>
-    <button id="buttonS">sound 2</button>
-    <button id="buttonD">sound 3</button>
+    <button id="buttonA">🐶</button>
+    <button id="buttonS">🐹</button>
+    <button id="buttonD">🦊</button>
     <button id="buttonB">Replay</button>
     <button id="next">Next</button>
   </div>

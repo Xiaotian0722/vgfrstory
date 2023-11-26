@@ -227,9 +227,13 @@ function drawlevel0() {
 function drawlevel1() {
   background(0);
   image(l1, windowWidth/3,windowHeight/8);
+  if (isMiniAudioPlaying) {
+    miniaudio.stop();
+    isMiniAudioPlaying = false;
+  }
   if (show1 == true){
     instruction();
-    
+ 
   }
   
   if (playing1) {
