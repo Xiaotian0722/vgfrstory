@@ -40,7 +40,7 @@ let drawRect8 = false;
 let drawRect9 = false;
 
 //narrative part
-let img1, img2, imgforest, imgfire, imgwin, imgfinal;
+let img1, img2, l1, imgforest, imgfire, imgwin, imgfinal;
 
 var j, k, l;
 var i, o, p;
@@ -86,6 +86,7 @@ function setup() {
 
   img1 = loadImage('narrative/Group 2.png');
   img2 = loadImage('narrative/mini.png');
+  l1 = loadImage('narrative/l1.png');
   imgforest = loadImage('narrative/forest.png');
   imgfire = loadImage('narrative/fire.png');
   imgwin = loadImage('narrative/win.png');
@@ -217,7 +218,7 @@ function drawlevel0() {
 
 function drawlevel1() {
   background(0);
-  
+  image(l1, windowWidth/3,windowHeight/8);
   if (show1 == true){
     instruction();
     
