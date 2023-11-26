@@ -127,23 +127,23 @@ function draw() {
 }
 
 function setuplevel0() {
-  createCanvas(windowWidth-60, windowHeight - 60);
+  createCanvas(windowWidth-20, windowHeight - 60);
   background(0);
 
 }
 
 function setuplevel1() {
-  createCanvas(600, 600);
+  createCanvas(windowWidth-20, windowHeight - 60);
   background(0);
 }
 
 function setuplevel2() {
-  createCanvas(600, 600);
+  createCanvas(windowWidth-20, windowHeight - 60);
   background(0);
 }
 
 function setuplevel3() {
-  createCanvas(600, 600);
+  createCanvas(windowWidth-20, windowHeight - 60);
   background(0);
 }
 
