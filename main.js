@@ -87,6 +87,12 @@ function setup() {
 
   img1 = loadImage('narrative/Group 2.png');
   img2 = loadImage('narrative/mini.png');
+  originalWidth1 = img1.width;
+  originalHeight1 = img1.height;
+  originalWidth2 = img2.width; 
+  originalHeight2 = img2.height;
+  // Resize the image proportionally to fit the screen
+  resizeImageToFitScreen();
   
   // button = createButton('Play');  
   // button.position(300, 600);
@@ -155,7 +161,40 @@ function instruction0() {
   // fill(150)
   // text("Then click the screen to continue!", width / 2, height / 2 + 25);
   image(img1, windowWidth/3,windowHeight/4);
+  //img1.resize(windowWidth/3,windowHeight/5)
 }
+
+function resizeImageToFitScreen() {
+  let aspectRatio = originalWidth1 / originalHeight1;
+  let newWidth, newHeight;
+
+  // Calculate new dimensions based on screen size and original aspect ratio
+  if (width / height > aspectRatio) {
+    newWidth = height * aspectRatio;
+    newHeight = height;
+  } else {
+    newWidth = width;
+    newHeight = width / aspectRatio;
+  }
+
+  // Resize the first image (img1)
+  img1.resize(newWidth, newHeight);
+
+  //Resize the second image (img2)
+  let aspectRatio2 = originalWidth2 / originalHeight2;
+  let newWidth2, newHeight2;
+
+  if (width / height > aspectRatio2) {
+    newWidth2 = height * aspectRatio2;
+    newHeight2 = height;
+  } else {
+    newWidth2 = width;
+    newHeight2 = width / aspectRatio2;
+  }
+
+  img2.resize(newWidth2, newHeight2);
+}
+
 
 function drawlevel0() {
   background(0);
